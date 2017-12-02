@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.RestaurantCustomerMapper">
+	
+	<resultMap id="RestaurantCustomer" type="RestaurantCustomer">
+		<id property="email" column="email" />
+		<result property="fname" column="fname" />
+		<result property="minit" column="minit"
+		<result property="lname" column="lname" />
+		<result property="phone" column="phone" />
+		<result property="password" column="password" />
+		<result property="streetno" column="streetno" />
+		<result property="streetname" column="streetname" />
+		<result property="city" column="city" />
+		<result property="state" column="state" />
+		<result property="zip" column="zip" />
+	</resultMap>
+
+	<select id="selectRestaurantCustomer" resultMap="RestaurantCustomer">
+		SELECT fname, lname, minit, phone, password, streetno, streetname, city, state, zip FROM restaurant_customer WHERE email = #{email}
+	</select>
+	
+	<insert id="insertRestaurantCustomer" parameterType="RestaurantCustomer">
+		INSERT INTO restaurant_customer (email, fname, lname, minit, phone, password, streetno, city, state, zip) VALUES (#{email},#{fname},#{minit},#{lname},#{phone},#{streetno},#{streetname},#{city},#{state},#{zip})
+	</insert>	
+	
+
+</mapper>
