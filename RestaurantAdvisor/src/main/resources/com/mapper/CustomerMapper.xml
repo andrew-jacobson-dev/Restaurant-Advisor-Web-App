@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mapper.CustomerMapper">
+<mapper namespace="com.mapper.RestaurantCustomerMapper">
 	
-	<resultMap id="Customer" type="Customer">
-		<id property="Email" column="email" />
+	<resultMap id="RestaurantCustomer" type="RestaurantCustomer">
+		<id property="email" column="email" />
 		<result property="fname" column="fname" />
 		<result property="minit" column="minit"
-		<result property="LastName" column="lname" />
-		<result property="HouseNo" column="houseno" />
-		<result property="Street" column="street" />
-		<result property="City" column="city" />
-		<result property="State" column="state" />
-		<result property="Zip" column="zip" />
-		<result property="Phone" column="phone" />
-		<result property="Password" column="password" />
+		<result property="lname" column="lname" />
+		<result property="phone" column="phone" />
+		<result property="password" column="password" />
+		<result property="streetno" column="streetno" />
+		<result property="streetname" column="streetname" />
+		<result property="city" column="city" />
+		<result property="state" column="state" />
+		<result property="zip" column="zip" />
 	</resultMap>
 
-	<select id="selectCustomer" resultMap="Customer">
-		SELECT firstname, lastname, email, houseno, street, city, state, zip, phone, password FROM customer WHERE email = #{email}
+	<select id="selectRestaurantCustomer" resultMap="RestaurantCustomer">
+		SELECT fname, lname, minit, phone, password, streetno, streetname, city, state, zip FROM restaurant_customer WHERE email = #{email}
 	</select>
 	
-	<insert id="insertCustomer" parameterType="Customer">
-		INSERT INTO customer (firstname, lastname, email, houseno, street, city, state, zip, phone, password) VALUES (#{FirstName},#{LastName},#{Email},#{HouseNo},#{Street},#{City},#{State},#{Zip},#{Phone},#{Password})
+	<insert id="insertRestaurantCustomer" parameterType="RestaurantCustomer">
+		INSERT INTO restaurant_customer (email, fname, lname, minit, phone, password, streetno, city, state, zip) VALUES (#{email},#{fname},#{minit},#{lname},#{phone},#{streetno},#{streetname},#{city},#{state},#{zip})
 	</insert>	
 	
 
