@@ -15,6 +15,9 @@
 		.mytext300 {
  				width: 230px;
 		}
+		body {
+		    background-color: #b6bbc4;
+		}
 	</style>
 </head>
 <body>
@@ -26,11 +29,11 @@
 	     <table>
 	        <tr>
 	            <td>Username</td>
-	            <td><form:input path="Email" class="mytext300"/></td>
+	            <td><form:input path="email" class="mytext300"/></td>
 	        </tr>
 	        <tr>
 	            <td>Password</td>
-	            <td><form:input path="Password" type="password" class="mytext300"/></td>
+	            <td><form:input path="password" type="password" class="mytext300"/></td>
 	        </tr>
 	        <tr><td/></tr>
 	        <tr>

@@ -12,8 +12,11 @@
 			    width: 315px;
     			margin: 0 auto;
 		}
+		.mytext1 {
+ 				width: 25px;
+		}
 		.mytext300 {
- 				width: 230px;
+ 				width: 300px;
 		}
 		.mytext100 {
  				width: 100px;
@@ -35,43 +38,47 @@
 	     <table>
 	     	<tr>
 	            <td>First Name</td>
-	            <td><form:input path="FirstName" class="mytext300"/></td>
+	            <td><form:input path="fname" class="mytext300"/></td>
+	        </tr>
+	        <tr>
+	            <td>MI</td>
+	            <td><form:input path="minit" class="mytext1"/></td>
 	        </tr>
 	        <tr>
 	            <td>Last Name</td>
-	            <td><form:input path="LastName" class="mytext300"/></td>
+	            <td><form:input path="lname" class="mytext300"/></td>
 	        </tr>
 	        <tr>
 	            <td>Email</td>
-	            <td><form:input path="Email" class="mytext300"/></td>
+	            <td><form:input path="email" class="mytext300"/></td>
 	        </tr>
 	        <tr>
 	            <td>House No.</td>
-	            <td><form:input path="HouseNo" class="mytext50"/></td>
+	            <td><form:input path="streetno" class="mytext50"/></td>
 	        </tr>
 	        <tr>
 	            <td>Street</td>
-	            <td><form:input path="Street" class="mytext300"/></td>
+	            <td><form:input path="streetname" class="mytext300"/></td>
 	        </tr>	        	        
 	        <tr>
 	            <td>City</td>
-	            <td><form:input path="City" class="mytext200"/></td>
+	            <td><form:input path="city" class="mytext200"/></td>
 	        </tr>	        
 	        <tr>
 	            <td>State</td>
-	            <td><form:input path="State" class="mytext100"/></td>
+	            <td><form:input path="state" class="mytext100"/></td>
 	        </tr>
 	        <tr>
 	            <td>Zip</td>
-	            <td><form:input path="Zip" class="mytext50"/></td>
+	            <td><form:input path="zip" class="mytext50"/></td>
 	        </tr>	        	        
 	        <tr>
 	            <td>Phone</td>
-	            <td><form:input path="Phone" class="mytext100"/></td>
+	            <td><form:input path="phone" class="mytext100"/></td>
 	        </tr>
 	        <tr>
 	            <td>Password</td>
-	            <td><form:input path="Password" type="password" class="mytext300"/></td>
+	            <td><form:input path="password" type="password" class="mytext300"/></td>
 	        </tr>
 	        <tr><td/></tr>
 	        <tr>

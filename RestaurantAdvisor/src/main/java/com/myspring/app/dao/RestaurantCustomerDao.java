@@ -9,32 +9,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
-import com.myspring.app.model.Customer;
+import com.myspring.app.model.RestaurantCustomer;
 import com.myspring.app.util.ConnectionFactory;
 
 @Service
-public class customerDao {
+public class RestaurantCustomerDao {
 	
-	public customerDao() {
+	public RestaurantCustomerDao() {
 		
 	}
 
-	public List<Customer> checkCustomer(String email) {
+	public List<RestaurantCustomer> checkRestaurantCustomer(String email) {
 		SqlSession session = ConnectionFactory.getSqlSessionFactory().openSession();
-		List<Customer> c = new ArrayList<Customer>();
+		List<RestaurantCustomer> c = new ArrayList<RestaurantCustomer>();
 		try {
-			c = session.selectList("com.mapper.CustomerMapper.selectCustomer",email);
+			c = session.selectList("com.mapper.RestaurantCustomerMapper.selectRestaurantCustomer",email);
 		} finally {
 			session.close();
 		}
 		return c;
 	}
 		
-	public int insertCustomer(Customer c) {
+	public int insertRestaurantCustomer(RestaurantCustomer c) {
 		SqlSession session = com.myspring.app.util.ConnectionFactory.getSqlSessionFactory().openSession();
 		int result;
 		try {
-			result = session.insert("com.mapper.CustomerMapper.insertCustomer",c);
+			result = session.insert("com.mapper.RestaurantCustomerMapper.insertRestaurantCustomer",c);
 			session.commit();
 		} finally {
 			session.close();

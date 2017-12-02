@@ -5,7 +5,7 @@
 	<resultMap id="RestaurantCustomer" type="RestaurantCustomer">
 		<id property="email" column="email" />
 		<result property="fname" column="fname" />
-		<result property="minit" column="minit"
+		<result property="minit" column="minit" />
 		<result property="lname" column="lname" />
 		<result property="phone" column="phone" />
 		<result property="password" column="password" />
@@ -17,11 +17,11 @@
 	</resultMap>
 
 	<select id="selectRestaurantCustomer" resultMap="RestaurantCustomer">
-		SELECT fname, lname, minit, phone, password, streetno, streetname, city, state, zip FROM restaurant_customer WHERE email = #{email}
+		SELECT fname, minit, lname, phone, password, streetno, streetname, city, state, zip FROM restaurant_customer WHERE email = #{email}
 	</select>
 	
 	<insert id="insertRestaurantCustomer" parameterType="RestaurantCustomer">
-		INSERT INTO restaurant_customer (email, fname, lname, minit, phone, password, streetno, city, state, zip) VALUES (#{email},#{fname},#{minit},#{lname},#{phone},#{streetno},#{streetname},#{city},#{state},#{zip})
+		INSERT INTO restaurant_customer (email, fname, minit, lname, phone, password, streetno, streetname, city, state, zip) VALUES (#{email},#{fname},#{minit},#{lname},#{phone},#{password},#{streetno},#{streetname},#{city},#{state},#{zip})
 	</insert>	
 	
 
