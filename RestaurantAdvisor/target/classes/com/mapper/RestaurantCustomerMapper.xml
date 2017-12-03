@@ -17,7 +17,7 @@
 	</resultMap>
 
 	<select id="selectRestaurantCustomer" resultMap="RestaurantCustomer">
-		SELECT fname, minit, lname, phone, password, streetno, streetname, city, state, zip FROM restaurant_customer WHERE email = #{email}
+		SELECT email, fname, minit, lname, phone, password, streetno, streetname, city, state, zip FROM restaurant_customer WHERE email = #{email}
 	</select>
 	
 	<insert id="insertRestaurantCustomer" parameterType="RestaurantCustomer">
