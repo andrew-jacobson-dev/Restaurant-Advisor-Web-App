@@ -34,7 +34,7 @@
   <li><a href="">Logout</a></li>
   <li><input type="text" placeholder="Search for a restaurant...">&nbsp;&nbsp;&nbsp;<input type="submit" value="Search"></li>
 </ul>
-<p>This is the home page.</p>
+<p>Welcome ${current_user_email}!</p>
 <!-- <h4>To transfer control to a view using a new controller file, click <a href="/app/restaurantList">here</a>.</h4> -->
 </body>
 </html>

@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import com.myspring.app.model.RestaurantCustomer;
@@ -40,6 +38,17 @@ public class RestaurantCustomerDao {
 			session.close();
 		}
 		return result;		
+	}
+	
+	public String getUserName(String email) {
+		SqlSession session = ConnectionFactory.getSqlSessionFactory().openSession();
+		RestaurantCustomer rc = new RestaurantCustomer();
+		try {
+			rc = session.selectOne("com.mapper.RestaurantCustomerMapper.selectRestaurantCustomer",email);
+		} finally {
+			session.close();
+		}
+		return rc.getFname();
 	}
 	
 }

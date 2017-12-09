@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Restaurants</title>
+<title>Reviews</title>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 	<style>
 		ul {
@@ -22,10 +22,24 @@
 		    display: block;
     		padding: 8px;
 		}
-		.heading{
+		.restaurantname
+		{
 			font-size: 18pt;
 			font-weight: bold;
+		}
+		th {
+			text-align: left;
+			border-bottom: 1px solid black;
+		}
+		.mytext300 {
+ 				width: 300px;
 		}		
+		.mytext250 {
+ 				width: 225px;
+		}
+		.mytext50 {
+ 				width: 50px;
+		}
 	</style>
 </head>
 <body>
@@ -38,13 +52,35 @@
   <li><a href="">Logout</a></li>
   <li><input type="text" placeholder="Search for a restaurant...">&nbsp;&nbsp;&nbsp;<input type="submit" value="Search"></li>
 </ul>
-<div class="heading"><p>Click on a restaurant to see its details:</p></div>
+<c:forEach items="${reviewinfo}" var="r" begin="0" end="0">
+<br><div class="restaurantname">${r.rname}</div>
+</c:forEach>
+<br>
 <table>
-	<c:forEach items="${restaurant}" var="r">
+	<c:forEach items="${reviewinfo}" var="r">
+	<th>${r.reviewtitle} - ${r.rating}/5</th>
 	<tr>
-		<td><a href="displayRestaurant?restid=${r.restid}">${r.rname}</a></td>
+		<td>${r.reviewdescr}</td>
 	</tr>
 	</c:forEach>
 </table>
+<br>
+<br>
+<br>
+<br>
+<form:form method="POST" action="addReview" modelAttribute="custreview">
+     Add your review:
+     <table>
+        <tr>
+            <td><form:input path="reviewtitle" class="mytext250" placeholder="Title"/> <form:input type="number" path="rating" min="1" max="5" class="mytext50" placeholder="Rate"/> / 5</td>
+        </tr>
+        <tr>
+            <td><form:textarea path="reviewdescr" rows="5" class="mytext300" placeholder="Enter your review here..."/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/>&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear"/></td>
+        </tr>
+    </table>
+</form:form>
 </body>
 </html>

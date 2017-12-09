@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Restaurants</title>
+<title>Reviews</title>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 	<style>
 		ul {
@@ -25,7 +25,7 @@
 		.heading{
 			font-size: 18pt;
 			font-weight: bold;
-		}		
+		}
 	</style>
 </head>
 <body>
@@ -38,11 +38,12 @@
   <li><a href="">Logout</a></li>
   <li><input type="text" placeholder="Search for a restaurant...">&nbsp;&nbsp;&nbsp;<input type="submit" value="Search"></li>
 </ul>
-<div class="heading"><p>Click on a restaurant to see its details:</p></div>
+<div class="heading"><p>Click on a restaurant to see its reviews:</p></div>
 <table>
-	<c:forEach items="${restaurant}" var="r">
+	<c:forEach items="${custreview}" var="cr">
 	<tr>
-		<td><a href="displayRestaurant?restid=${r.restid}">${r.rname}</a></td>
+		<td><a href="displayReviews?restid=${cr.restid}">${cr.rname}</a></td>
+		<td>&nbsp;(average rating: ${cr.avgrating})</td>
 	</tr>
 	</c:forEach>
 </table>

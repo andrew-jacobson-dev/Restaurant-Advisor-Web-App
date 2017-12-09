@@ -22,10 +22,11 @@
 		    display: block;
     		padding: 8px;
 		}
-		.heading{
+		.restaurantname
+		{
 			font-size: 18pt;
 			font-weight: bold;
-		}		
+		}
 	</style>
 </head>
 <body>
@@ -38,13 +39,28 @@
   <li><a href="">Logout</a></li>
   <li><input type="text" placeholder="Search for a restaurant...">&nbsp;&nbsp;&nbsp;<input type="submit" value="Search"></li>
 </ul>
-<div class="heading"><p>Click on a restaurant to see its details:</p></div>
+<br><div class="restaurantname">${restaurantinfo.rname} (${restaurantinfo.diningtype})</div>
+<br>Phone: ${restaurantinfo.phone}
+<br>Email: ${restaurantinfo.email}
+<br>Hours: ${restaurantinfo.hours}
+<br>Price: ${restaurantinfo.pricerange}
+<br></br>
 <table>
-	<c:forEach items="${restaurant}" var="r">
 	<tr>
-		<td><a href="displayRestaurant?restid=${r.restid}">${r.rname}</a></td>
+		<td>${restaurantinfo.streetno} ${restaurantinfo.streetname}</td>
 	</tr>
-	</c:forEach>
+	<tr>
+		<td>${restaurantinfo.city} ${restaurantinfo.state} ${restaurantinfo.zip}</td>
+	</tr>
+	<tr>
+		<td></td>
+	</tr>
+	<tr>
+		<td>${restaurantinfo.deliveryflag}</td>
+	</tr>
+	<tr>
+		<td>${restaurantinfo.outdoorseatingflag}</td>
+	</tr>
 </table>
 </body>
 </html>

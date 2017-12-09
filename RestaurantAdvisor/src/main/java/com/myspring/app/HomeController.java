@@ -1,9 +1,8 @@
 package com.myspring.app;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import org.slf4j.Logger;
@@ -42,11 +41,12 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "checkLogin", method = RequestMethod.POST)
-	public String checkLogin(@ModelAttribute("customer")RestaurantCustomer customer, Model model) {
+	public String checkLogin(@ModelAttribute("customer")RestaurantCustomer customer, Model model, HttpSession session) {
 		logger.info("Login Information : " + customer.getEmail() + ", " + customer.getPassword());
 		String address;
 		//RestaurantCustomerService cs = new RestaurantCustomerService();
 		if (cs.checkRestaurantCustomer(customer.getEmail(), customer.getPassword())) {
+			session.setAttribute("current_user_email",customer.getEmail());
 			address = "mainpage";
 		} else {
 			JOptionPane.showMessageDialog(null, "Incorrect Username or Password!", "Error", JOptionPane.ERROR_MESSAGE);			

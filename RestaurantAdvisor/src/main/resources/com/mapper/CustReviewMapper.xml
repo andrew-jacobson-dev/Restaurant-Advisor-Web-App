@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CustReviewMapper">
+	
+	<resultMap id="CustReview" type="CustReview">
+		<id property="reviewid" column="reviewid" />
+		<result property="custemail" column="custemail" />
+		<result property="restid" column="restid" />
+		<result property="rname" column="rname" />
+		<result property="reviewtitle" column="reviewtitle" />
+		<result property="reviewdescr" column="reviewdescr" />
+		<result property="reviewdate" column="reviewdate" />
+		<result property="rating" column="rating" />
+	</resultMap>
+	
+	<resultMap id="RestaurantsAndRatings" type="RestaurantsAndRatings">
+		<id property="restid" column="restid"/>
+		<result property="rname" column="rname" />
+		<result property="avgrating" column="avgrating" />
+	</resultMap>
+
+	<select id="selectAllReviews" resultMap="CustReview">
+		SELECT a.reviewid, a.custemail, a.restid, b.rname, a.reviewtitle, a.reviewdescr, a.reviewdate, a.rating 
+		  FROM cust_review a, restaurant b
+		 WHERE a.restid = b.restid
+		   AND a.restid = #{restid}
+	</select>
+	
+	<select id="selectRestaurants" resultMap="RestaurantsAndRatings">
+		SELECT b.restid, b.rname, avg(a.rating) as avgrating
+		  FROM cust_review a, restaurant b
+		 WHERE a.restid = b.restid
+	  GROUP BY b.restid, b.rname
+	  ORDER BY avg(a.rating) DESC
+	</select>
+	
+	<insert id="insertReview" parameterType="CustReview">
+		INSERT INTO cust_review (reviewid, custemail, restid, reviewtitle, reviewdescr, reviewdate, rating) VALUES (Customer_ReviewId_Seq.nextval,#{custemail},#{restid},#{reviewtitle},#{reviewdescr},current_date,#{rating})
+	</insert>	
+	
+</mapper>

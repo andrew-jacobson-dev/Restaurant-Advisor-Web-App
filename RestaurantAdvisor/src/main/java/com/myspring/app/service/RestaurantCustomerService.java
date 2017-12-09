@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import com.myspring.app.dao.RestaurantCustomerDao;
@@ -44,6 +43,10 @@ public class RestaurantCustomerService {
 		return flag;
 	}
 	
+	public String getUserName(String email) {
+		RestaurantCustomerDao rcd = new RestaurantCustomerDao();
+		String fname = rcd.getUserName(email);
+		return fname;
+	}
 	
-
 }
