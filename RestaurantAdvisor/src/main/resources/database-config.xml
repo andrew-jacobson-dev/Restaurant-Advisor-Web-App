@@ -5,6 +5,9 @@
 <configuration>
 <typeAliases>
   <typeAlias alias="RestaurantCustomer" type="com.myspring.app.model.RestaurantCustomer"/>
+  <typeAlias alias="Restaurant" type="com.myspring.app.model.Restaurant"/>
+  <typeAlias alias="CustReview" type="com.myspring.app.model.CustReview"/>
+  <typeAlias alias="RestaurantsAndRatings" type="com.myspring.app.model.RestaurantsAndRatings"/>
 </typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -19,5 +22,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/mapper/RestaurantCustomerMapper.xml" />
+		<mapper resource="com/mapper/RestaurantMapper.xml" />
+		<mapper resource="com/mapper/CustReviewMapper.xml" />
 	</mappers>
 </configuration>

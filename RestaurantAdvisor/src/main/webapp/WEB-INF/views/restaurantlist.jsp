@@ -22,18 +22,45 @@
 		    display: block;
     		padding: 8px;
 		}
+		table td + td {
+			
+		}
 	</style>
 </head>
 <body>
-<h1>Welcome to Restaurant Advisor</h1>
+<h1>Restaurant Advisor</h1>
 <ul>
   <li><a href="mainPage">Home</a></li>
-  <li><a href="restaurantList">Restaurants</a></li>
-  <li><a href="">Reviews</a></li>
+  <li><a href="getRestaurantList">Restaurants</a></li>
+  <li><a href="getRestaurantsAndRatings">Reviews</a></li>
   <li><a href="">Orders</a></li>
   <li><a href="">Logout</a></li>
   <li><input type="text" placeholder="Search for a restaurant...">&nbsp;&nbsp;&nbsp;<input type="submit" value="Search"></li>
 </ul>
-<p>Here is the list of available restaurants:</p>
+<p>Click on a restaurant to see its details:</p>
+<table>
+	<c:forEach items="${restaurant}" var="r">
+	<tr>
+		<td><a href="displayRestaurantDetails">${r.rname}</a></td>
+	</tr>
+	<tr>
+		<td>About</td>
+		<td>Style: ${r.diningtype}</td>
+	</tr>
+	<tr>
+		<td>Dining Info</td>
+		<td>Address: ${r.streetno} ${r.streetname} ${r.city} ${r.state} ${r.zip}</td>
+		<td>Hours: ${r.hours}</td>
+		<td>Price: ${r.pricerange}</td>
+		<td>Delivery: ${r.deliveryflag}</td>
+		<td>Outdoor Seating: ${r.outdoorseatingflag}</td>
+	</tr>
+	<tr>	
+		<td>Contact Info</td>
+		<td>Phone: ${r.phone}</td>
+		<td>Email: ${r.email}</td>
+	</tr>
+	</c:forEach>
+</table>
 </body>
 </html>

@@ -20,4 +20,14 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RestaurantServlet</display-name>
+    <servlet-name>RestaurantServlet</servlet-name>
+    <servlet-class>com.myspring.app.service.RestaurantServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RestaurantServlet</servlet-name>
+    <url-pattern>/RestaurantServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
