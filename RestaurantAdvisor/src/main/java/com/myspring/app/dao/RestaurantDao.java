@@ -31,7 +31,6 @@ public class RestaurantDao {
 		SqlSession session = ConnectionFactory.getSqlSessionFactory().openSession();
 		Restaurant r = new Restaurant();
 		try {
-//			r = session.selectList("com.mapper.RestaurantMapper.selectOneRestaurant");
 			r = session.selectOne("com.mapper.RestaurantMapper.selectOneRestaurant",restid);
 		} finally {
 			session.close();

@@ -60,7 +60,7 @@ public class ReviewListController {
 		CustReviewService crs = new CustReviewService();
 		i = crs.insertReview(custreview);
 		if (i == 0) {
-			JOptionPane.showMessageDialog(null, "Cannot add review!", "Error", JOptionPane.ERROR_MESSAGE);	
+			JOptionPane.showMessageDialog(null, "Cannot add review!", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		return "mainpage";

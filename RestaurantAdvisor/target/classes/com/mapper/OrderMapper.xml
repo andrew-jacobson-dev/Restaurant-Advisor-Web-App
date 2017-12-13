@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.OrderMapper">
+	
+	<resultMap id="Order" type="Order">
+		<id property="Ono" column="Ono" />
+		<result property="OrderDate" column="OrderDate" />
+		<result property="CustEmail" column="CustEmail" />
+		<result property="OrderDineInFlag" column="OrderDineInFlag" />
+		<result property="OrderDeliveryFlag" column="OrderDeliveryFlag" />
+		<result property="OrderPickupFlag" column="OrdeRPickupFlag" />
+		<result property="OrderPickupDate" column="OrderPickupDate" />
+		<result property="OrderDeliveryDate" column="OrderDeliveryDate" />
+		<result property="OrderDineInRecievedDate" column="OrderDineInRecievedDate" />
+	</resultMap>
+	
+	<resultMap id="ODetails" type="ODetails">
+		<id property="ono" column="ono" />
+		<result property="foodname" column="foodname" />
+		<result property="restid" column="restid" />
+		<result property="qty" column="qty" />
+	</resultMap>
+
+	<insert id="insertOrder" parameterType="Order">
+		INSERT INTO restaurant_order (ono, orderDate, custEmail, OrderDineInFlag, OrderDeliveryFlag, 
+		OrderPickupFlag, OrderPickupDate, OrderDeliveryDate, OrderDineInReceivedDate) 
+		
+		VALUES (Restaurant_Order_Ono.nextval,current_date,#{custEmail},#{OrderDineInFlag},#{OrderDeliveryFlag},
+		#{OrderPickupFlag},#{OrderPickupDate},#{OrderDeliveryDate},#{OrderDineInReceivedDate})
+	</insert>
+	
+	<insert id="insertODetails" parameterType="ODetails">
+		INSERT INTO restaurant_odetails (ono, foodname, restid, qty)
+		VALUES (Restaurant_Order_Ono.currval,#{foodname},#{restid},#{qty})
+	</insert>
+	
+</mapper>

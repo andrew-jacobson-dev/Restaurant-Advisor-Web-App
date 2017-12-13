@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Restaurants</title>
+<title>Menu</title>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 	<style>
 		ul {
@@ -27,6 +27,19 @@
 			font-size: 18pt;
 			font-weight: bold;
 		}
+		th {
+			text-align: left;
+			border-bottom: 1px solid black;
+		}
+		.mytext300 {
+ 				width: 300px;
+		}		
+		.mytext250 {
+ 				width: 225px;
+		}
+		.mytext50 {
+ 				width: 50px;
+		}
 	</style>
 </head>
 <body>
@@ -39,28 +52,21 @@
   <li><a href="">Logout</a></li>
   <li><input type="text" placeholder="Search for a restaurant...">&nbsp;&nbsp;&nbsp;<input type="submit" value="Search"></li>
 </ul>
-<br><div class="restaurantname">${restaurantinfo.rname} (${restaurantinfo.diningtype})</div>
-<br>Phone: ${restaurantinfo.phone}
-<br>Email: ${restaurantinfo.email}
-<br>Hours: ${restaurantinfo.hours}
-<br>Price: ${restaurantinfo.pricerange}
-<br></br>
+<c:forEach items="${menuitem}" var="m" begin="0" end="0">
+<br><div class="restaurantname">${m.rname}</div>
+</c:forEach>
+<br>
+<form:form method="POST" action="placeOrder" modelAttribute="odetails">
 <table>
+	<c:forEach items="${menuitem}" var="m">
 	<tr>
-		<td>${restaurantinfo.streetno} ${restaurantinfo.streetname}</td>
+		<td>${m.foodname}</td>
+		<td>$${m.price}</td>
+		<td><form:input type="number" path="qty" class="mytext50" placeholder="Qty"/></td>
 	</tr>
-	<tr>
-		<td>${restaurantinfo.city} ${restaurantinfo.state} ${restaurantinfo.zip}</td>
-	</tr>
-	<tr>
-		<td></td>
-	</tr>
-	<tr>
-		<td>${restaurantinfo.deliveryflag}</td>
-	</tr>
-	<tr>
-		<td>${restaurantinfo.outdoorseatingflag}</td>
-	</tr>
+	</c:forEach>
 </table>
+<input type="submit" value="Submit"/>&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear"/></td>
+</form:form>
 </body>
 </html>

@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.app.model.Restaurant;
 import com.myspring.app.model.RestaurantsAndRatings;
 import com.myspring.app.service.CustReviewService;
-import com.myspring.app.service.RestaurantCustomerService;
 import com.myspring.app.service.RestaurantService;
 /**
  * Handles requests for the application home page.
@@ -51,5 +50,13 @@ public class MainPageController {
 		CustReviewService crs = new CustReviewService();
 		restaurantsAndRatingsList = crs.getRestaurantList();
 		return new ModelAndView("reviews", "custreview", restaurantsAndRatingsList);
+	}
+	
+	@RequestMapping(value = "getRestaurantOrders")
+	public ModelAndView getRestaurantOrders() {
+		List<Restaurant> restaurantList = new ArrayList<Restaurant>();
+		RestaurantService rs = new RestaurantService();
+		restaurantList = rs.getRestaurantList();
+		return new ModelAndView("ordering", "restaurant", restaurantList);
 	}
 }

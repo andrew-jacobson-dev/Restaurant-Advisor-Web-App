@@ -36,7 +36,7 @@ public class HomeController {
 		logger.info("Restaurant Advisor System. The client locale is {}.", locale);
 		RestaurantCustomer customer = new RestaurantCustomer();
 		model.addAttribute("customer",customer);
-		return "home";
+		return "restaurantlogin";
 	}
 	
 	
@@ -50,7 +50,7 @@ public class HomeController {
 			address = "mainpage";
 		} else {
 			JOptionPane.showMessageDialog(null, "Incorrect Username or Password!", "Error", JOptionPane.ERROR_MESSAGE);			
-			address = "home";
+			address = "restaurantlogin";
 		}
 		return address;
 	}	
@@ -74,7 +74,7 @@ public class HomeController {
 		if (i == 0) {
 			JOptionPane.showMessageDialog(null, "Error adding customer information!", "Error", JOptionPane.ERROR_MESSAGE);
 		}
-		return "home";
+		return "restaurantlogin";
 	}
 	
 	
