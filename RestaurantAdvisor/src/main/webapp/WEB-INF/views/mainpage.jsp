@@ -31,9 +31,9 @@
   <li><a href="getRestaurantList">Restaurants</a></li>
   <li><a href="getRestaurantsAndRatings">Reviews</a></li>
   <li><a href="getRestaurantOrders">Orders</a></li>
-  <li><a href="">Logout</a></li>
+  <li><a href="#">Logout</a></li>
   <li><input type="text" placeholder="Search for a restaurant...">&nbsp;&nbsp;&nbsp;<input type="submit" value="Search"></li>
 </ul>
-<p>Welcome!</p>
+<p>Welcome ${user.fname}</p>
 </body>
 </html>

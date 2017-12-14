@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionException;
 import org.springframework.stereotype.Service;
 
 import com.myspring.app.model.RestaurantCustomer;
@@ -34,7 +35,8 @@ public class RestaurantCustomerDao {
 		try {
 			result = session.insert("com.mapper.RestaurantCustomerMapper.insertRestaurantCustomer",c);
 			session.commit();
-		} finally {
+		}
+		finally {
 			session.close();
 		}
 		return result;		

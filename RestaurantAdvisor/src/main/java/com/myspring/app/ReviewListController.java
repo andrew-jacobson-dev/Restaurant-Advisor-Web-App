@@ -46,7 +46,7 @@ public class ReviewListController {
 			JOptionPane.showMessageDialog(null, "Fill out rating", "Error", JOptionPane.ERROR_MESSAGE);
 			return "mainpage";
 		}
-		if(custreview.getReviewtitle() == null) {
+		if(custreview.getReviewtitle().equals("")) {
 			JOptionPane.showMessageDialog(null, "Add a title", "Error", JOptionPane.ERROR_MESSAGE);
 			return "mainpage";
 		}
